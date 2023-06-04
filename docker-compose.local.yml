@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  react-app:
+    build: 
+      context: .
+      dockerfile: ./docker-files/app.Dockerfile
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    ports:
+      - '3000:5173'
+    container_name: react-app
+    volumes:
+      - ./local/:/app/
